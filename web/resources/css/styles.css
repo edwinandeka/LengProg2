@@ -1,0 +1,76 @@
+html, body {
+    height: 100%;
+}
+
+/*Login*/
+
+.container-login {
+    height: 100%;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.form-login {
+    height: 100vh;
+    background: #eceff1;
+    padding: 150px;
+    text-align: center;
+    padding-top: 120px;
+}
+
+.form-login p {
+	margin: 16px;
+	color: #888;
+	font-size: 13px;
+}
+
+.form-login img {
+	width: 194px;
+}
+
+.col-md-4 {
+	padding: 0
+}
+
+.input-form {
+	margin-bottom: 16px;
+}
+
+.footer {
+    position: absolute;
+    font-size: 12px;
+    bottom: 16px;
+    left: 12px;
+	color: #888;
+    padding: 30px 128px;
+}
+
+/*solicitud*/
+
+.container-request {
+	padding: 30px;
+
+}
+
+.container-request img  {
+	width: 240px;
+    margin-bottom: 16px;
+}
+
+.container-request {
+
+}
+
+.container-request h3 {
+    color: #ed1c24;
+    margin-top: 16px;
+    font-weight: 400;
+}
+
+ul#javax_faces_developmentstage_messages {
+    position: absolute;
+    top: 175px;
+    left: 424px;
+    list-style: circle;
+}
