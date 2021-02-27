@@ -13,24 +13,30 @@
         <div class="container-login">
             <div class="row">
                  
-                <div  class="col-md-8 container-request">
+
+                
+                <div  class="col-md-12 container-request">
 
                     <h:graphicImage url="/resources/img/logo-banco.png"/>
                     Sistema de géstion de clientes -  Proceso de Negocio Solicitud de Tarjeta de Crédito
 
+
                      <h:form id="form-request" class="form-horizontal">
                          
-                        <h3>Solicitud de tarjeta de crédito</h3>
+                        <h3>Clientes - Crear</h3>
                         
-                        <h:messages class="messages-log"  />
+                        
+                        <h:messages class="messages-log" />
                         
                         <div class="form-request col-md-4">
+
                            
                             <div class="input-form">
                                 <h:outputLabel for="dni" class="control-label">Número de Cédula *</h:outputLabel>
                                 <h:inputText id="dni" value="#{client.dni}" converterMessage="La cédula debe tener números únicamente" class="form-control" validatorMessage="La cédula es obligatoria">
                                     <f:validateRequired />
                                 </h:inputText>
+
                             </div> 
 
                             <div class="row">
@@ -88,8 +94,12 @@
                             </div> 
 
                             <div class="input-form">
-                                <h:commandButton value="Solicitar" action="#{client.saveLogin()}" class="btn btn-danger btn-block" ></h:commandButton>
+                                <h:commandButton value="Cancelar"  action="workspace.xhtml?faces-redirect=true" immediate="true"  class="btn btn-light btn-block" ></h:commandButton>
                             </div> 
+                              <div class="input-form">
+                                <h:commandButton value="Guardar" action="#{client.save()}" class="btn btn-danger btn-block" ></h:commandButton>
+                            </div> 
+
 
                            
                         </div>
@@ -99,42 +109,6 @@
                 </div>
 
 
-                <div class="col-md-4">
-                     <h:form id="form-login" class="form-horizontal">
-                         
-                        <div class="form-login">
-
-                           
-                            <h:graphicImage url="/resources/img/logo-banco.png"/>
-                            <p>Ingreso para usuarios del Banco</p>
-                            
-                     
-
-                            <div class="input-form">
-                                <h:outputLabel for="user" class="control-label">Usuario</h:outputLabel>
-                                <h:inputText id="user"  value="#{user.email}" class="form-control" validatorMessage="El usuario es obligatorio">
-                                    <f:validateRequired />
-                                </h:inputText>
-                            </div>
-
-                             <div class="input-form">
-                                <h:outputLabel for="password-id" class="control-label">Contraseña</h:outputLabel>
-                                <h:inputSecret id="password-id" value="#{user.password}" class="form-control" validatorMessage="Contraseña es obligatoria">
-                                    <f:validateRequired/>
-                                </h:inputSecret>
-                                <small>(Token proporcionado por el Banco)</small>
-                            </div>
-                            <h:commandButton value="Ingresar" action="#{user.login()}" class="btn btn-danger btn-block" ></h:commandButton>
-
-
-                            <div class="footer">
-                                Si eres usuario del banco y no posees las credenciales de acceso debes solicitar el usuario y  la contraseña ( token ) al administrador 
-                            </div>
-                                   
-                        </div>
-                    </h:form>
-
-                </div>
                 
             </div>
         </div>

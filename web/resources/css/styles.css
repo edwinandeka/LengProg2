@@ -68,9 +68,29 @@ html, body {
     font-weight: 400;
 }
 
-ul#javax_faces_developmentstage_messages {
+
+.messages-log {
     position: absolute;
     top: 175px;
     left: 424px;
     list-style: circle;
+    color: #ed1c24;
+}
+
+.btn-new-client {
+    position: absolute;
+    top: 60px;
+    right: 32px;
+}
+
+.btn-close-session {
+    right: 132px;
+}
+
+.container-request th {
+    border: 0 !important;
+}
+
+.container-request thead tr {
+    border: 0 !important;
 }

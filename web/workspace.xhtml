@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>    
+        <title>Solicitud de tarjetas de crédito</title>
+        <h:outputStylesheet name="/css/bootstrap.min.css"/>
+        <h:outputStylesheet name="/css/styles.css"/>
+    </h:head>
+    <h:body>
+
+        <div class="container-login">
+            <div class="row">
+                
+                <div  class="col-md-12 container-request">
+
+                    <h:graphicImage url="/resources/img/logo-banco.png"/>
+                    Sistema de géstion de clientes -  Proceso de Negocio Solicitud de Tarjeta de Crédito
+
+
+                    <h:form id="form-request" class="form-horizontal">
+                         
+                        <h3>Clientes</h3>
+                        <br></br>
+                        
+
+                         <h:commandButton action = "newclient.xhtml?faces-redirect=true" value="Agregar" class="btn btn-danger btn-new-client"></h:commandButton> 
+                        <h:commandButton action = "#{user.logout()}" value="Salir" class="btn btn-light btn-new-client btn-close-session"></h:commandButton> 
+                        
+                        <h:messages class="messages-log" />
+                            
+
+                        <h:dataTable binding="#{table}" value="#{client.usersList()}" var="u" class="table table-hover " >
+                            <h:column>
+                                <f:facet name="header">ID</f:facet>
+                                <h:outputText value="#{u.id}"/>
+                            </h:column>
+                             <h:column>
+                                <f:facet name="header">Cédula</f:facet>
+                                <h:outputText value="#{u.dni}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Primer Nombre</f:facet>
+                                <h:outputText value="#{u.name}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Segundo Nombre</f:facet>
+                                <h:outputText value="#{u.name2}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Primer Apellido</f:facet>
+                                <h:outputText value="#{u.lastname}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Segundo Apellido</f:facet>
+                                <h:outputText value="#{u.lastname2}"/>
+                            </h:column>
+                             <h:column>
+                                <f:facet name="header">Fecha Nacimiento</f:facet>
+                                <h:outputText value="#{u.birthdate}">
+                                    <f:convertDateTime type="date" pattern="dd/MM/yyyy" timeZone="GMT-5" />  
+                                </h:outputText>
+
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Ocupación</f:facet>
+                                <h:outputText value="#{u.occupation}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Ingresos Mensuales</f:facet>
+                                <h:outputText value="#{u.salary}"/>
+                            </h:column>
+
+                            
+                           
+                            <h:column> 
+                                <f:facet name="header">Acciones</f:facet>
+                                <h:commandButton action = "#{client.edit(u.id)}" value="Editar" class="btn btn-danger"> 
+                                </h:commandButton>
+                            </h:column>
+                           
+                       </h:dataTable>
+                    </h:form>
+
+
+
+                </div>
+              
+            </div>
+        </div>
+    </h:body>
+</html>
