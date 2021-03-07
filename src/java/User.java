@@ -12,6 +12,9 @@ import javax.faces.context.FacesContext;
 @ManagedBean
 @RequestScoped
 public class User{
+    
+    private static final long serialVersionUID = 8799656478674716638L;
+     
     int id;
     String name;
     String email;
@@ -60,8 +63,9 @@ public class User{
     // Used to establish connection
     public Connection getConnection(){
         try{
-            Class.forName("com.mysql.jdbc.Driver");   
-            connection = DriverManager.getConnection( "jdbc:mysql://localhost:3306/User","root","");
+            Class.forName("com.mysql.jdbc.Driver"); 
+            connection = DriverManager.getConnection("jdbc:mysql://132.148.165.131:3306/dowesoft_lengpro?autoReconnect=true&useSSL=false", "dowesoft_lengprouser", "}cqUV6x~+Nwd");
+            //connection = DriverManager.getConnection( "jdbc:mysql://localhost:3306/User","root","");
         }catch(Exception e){
             System.out.println(e);
         }
@@ -90,7 +94,7 @@ public class User{
                     user.setGender(rs.getString("gender"));
                     user.setAddress(rs.getString("address"));
                     
-                    sessionMap.put("logged", user);
+                    sessionMap.put("logged", "true");
                     try {
                         FacesContext.getCurrentInstance().getExternalContext().redirect("workspace.xhtml?faces-redirect=true");
                     } catch (Exception e) {

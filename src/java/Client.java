@@ -27,6 +27,8 @@ import javax.faces.context.FacesContext;
  * @author edwin
  */
 public class Client {
+    
+     private static final long serialVersionUID = 8799656478674716638L;
 
     int id;
     int dni;
@@ -46,7 +48,9 @@ public class Client {
         FacesContext context = FacesContext.getCurrentInstance();
         String viewId = context.getViewRoot().getViewId();
         
-        if(sessionMap.get("logged")== null && !viewId.equals("/login.xhtml")){
+        System.out.println("Client.<init>()" + viewId);
+        
+        if(sessionMap.get("logged")== null && !viewId.contains("login")){
             try {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml?faces-redirect=true");
             } catch (Exception e) {
@@ -152,7 +156,8 @@ public class Client {
     public Connection getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/User", "root", "");
+            //connection = DriverManager.getConnection( "jdbc:mysql://localhost:3306/User","root","");
+            connection = DriverManager.getConnection("jdbc:mysql://132.148.165.131:3306/dowesoft_lengpro?autoReconnect=true&useSSL=false", "dowesoft_lengprouser", "}cqUV6x~+Nwd");
         } catch (Exception e) {
             System.out.println(e);
         }
